@@ -1,0 +1,19 @@
+apiVersion: 1
+
+# Auto-provisions the PostgreSQL data source the pipeline writes to.
+# Credentials come from the container environment (env_file: .env in docker-compose.yml).
+# The host is hardcoded to host.docker.internal because PG_HOST in .env is 127.0.0.1,
+# which inside a container would point at the container itself, not the host.
+datasources:
+  - name: PostgreSQL
+    type: postgres
+    access: proxy
+    url: host.docker.internal:5432
+    database: ${PG_DB}
+    user: ${PG_USER}
+    isDefault: true
+    secureJsonData:
+      password: ${PG_PASSWORD}
+    jsonData:
+      sslmode: disable
+      postgresVersion: 1400

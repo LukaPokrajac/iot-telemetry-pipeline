@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+.env
+.esphome/
+secrets.yaml
+secrets.h
+
+# PlatformIO build output
+.pio/
