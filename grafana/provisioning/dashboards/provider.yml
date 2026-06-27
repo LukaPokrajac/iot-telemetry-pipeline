@@ -1,0 +1,11 @@
+apiVersion: 1
+providers:
+  - name: 'esp32-dashboards'
+    orgId: 1
+    folder: 'ESP32'           # which UI folder they appear in
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 30
+    allowUiUpdates: true      # lets you still tweak in UI; set false to lock to files
+    options:
+      path: /etc/grafana/provisioning/dashboards/json
